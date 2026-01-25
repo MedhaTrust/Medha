@@ -191,6 +191,16 @@ button:hover {
   color: #1a73e8;
   margin: 0;
 }
+.admin-access {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+
+.footer-text {
+  margin: 0;
+}
 
 /* ================= TABLET ================= */
 @media (max-width: 768px) {
@@ -236,3 +246,4 @@ button:hover {
     width: 100%;
   }
 }
+
