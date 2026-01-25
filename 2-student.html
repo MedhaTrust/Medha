@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Request</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Student Financial Request</h2>
+
+  <div class="section">
+
+    <h4>Student Details</h4>
+    <div class="form-row">
+      <input id="mssid" placeholder="MSS ID">
+      <input id="year" placeholder="Year">
+    </div>
+
+    <button onclick="fetchMainStudent()">Fetch Details</button>
+
+    <div class="form-row">
+      <input id="name" placeholder="Name" disabled>
+      <input id="college" placeholder="College" disabled>
+    </div>
+
+    <h4>Request Type</h4>
+    <select id="requestType" onchange="handleRequestType()">
+      <option value="">Select Request Type</option>
+      <option value="Individual">Individual</option>
+      <option value="Group">Group</option>
+    </select>
+
+    <div id="groupCountBox" style="display:none">
+      <input id="groupCount" type="number" placeholder="Number of Group Members">
+      <button onclick="createGroupInputs()">Next</button>
+    </div>
+
+    <div id="groupMembers"></div>
+
+    <h4>Payment Details</h4>
+
+<div class="form-row">
+  <select id="paymentType" onchange="loadCategories()">
+    <option value="">Select Process</option>
+    <option value="fees">MSS - Fees for Students</option>
+    <option value="books">MSS - Books and Stationery for Students</option>
+    <option value="conveyance">MSS - Conveyance Charges to Students</option>
+    <option value="welfare">MSS - Student Welfare</option>
+  </select>
+
+  <select id="category" onchange="loadSubCategories()">
+    <option value="">Select Category</option>
+  </select>
+</div>
+
+<div class="form-row">
+  <select id="subCategory">
+    <option value="">Select Sub-Category</option>
+  </select>
+
+      <select id="paymentMode">
+        <option value="">Payment Mode</option>
+        <option>Online</option>
+        <option>Pay to Student</option>
+      </select>
+    </div>
+
+    <textarea id="details" placeholder="Request Details / Links"></textarea>
+    <input type="date" id="dueDate">
+
+    <!-- ✅ ATTACHMENT AS DRIVE LINK -->
+    <h4>Attachment (Google Drive Link)</h4>
+    <input type="url" id="attachment" placeholder="Paste Google Drive file link">
+
+    <button onclick="submitRequest()">Submit Request</button>
+
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="popup" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+">
+  <div style="background:white;padding:25px;border-radius:8px;">
+    <p id="popupMessage"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
