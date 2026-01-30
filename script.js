@@ -3,9 +3,11 @@ let groupMembers = [];
 
 /* ===============================
    EXCEL CATEGORY DATA
+   Category = fees / books / conveyance / welfare
+   SubCategory = Excel items
 ================================ */
 
-const paymentData = {
+const paymentData = { 
   fees: {
     "College Fee": [
       "Tuition Fee",
@@ -19,7 +21,7 @@ const paymentData = {
       "College Uniform",
       "CA/CMA/CS Coaching Fee",
       "Minor Degree Tuition Fee"
-    ],
+    ], 
     "Exam Fee": [
       "Semester Exam Fee",
       "Annual Exam Fee",
@@ -27,7 +29,7 @@ const paymentData = {
       "IPE Board Exam Fee",
       "NPTEL Exam Fee",
       "Minor Degree Exam Fee"
-    ],
+    ], 
     "Miscellaneous Fees": [
       "CMM",
       "Original Degree",
@@ -86,18 +88,6 @@ const paymentData = {
 };
 
 /* ===============================
-   HELPERS
-================================ */
-
-function val(id) {
-  return document.getElementById(id).value.trim();
-}
-
-function setVal(id, v) {
-  document.getElementById(id).value = v || "";
-}
-
-/* ===============================
    LOAD CATEGORY (EXCEL MAIN)
 ================================ */
 
@@ -106,12 +96,12 @@ function loadCategories() {
   const subCategory = document.getElementById("subCategory");
 
   category.innerHTML = `<option value="">Select Category</option>`;
-  subCategory.innerHTML = `<option value="">Select Sub Category</option>`;
+  subCategory.innerHTML = `<option value="">Select Sub-Category</option>`;
 
-  Object.keys(paymentData).forEach(cat => {
+  Object.keys(paymentData).forEach(key => {
     const opt = document.createElement("option");
-    opt.value = cat;
-    opt.textContent = cat.toUpperCase();
+    opt.value = key;
+    opt.textContent = key.toUpperCase();
     category.appendChild(opt);
   });
 }
@@ -121,22 +111,32 @@ function loadCategories() {
 ================================ */
 
 function loadSubCategories() {
-  const categoryKey = val("category");
+  const categoryKey = document.getElementById("category").value;
   const subCategory = document.getElementById("subCategory");
 
-  subCategory.innerHTML = `<option value="">Select Sub Category</option>`;
+  subCategory.innerHTML = `<option value="">Select Sub-Category</option>`;
   if (!categoryKey) return;
 
-  const data = paymentData[categoryKey];
-
-  Object.keys(data).forEach(group => {
-    data[group].forEach(item => {
+  Object.keys(paymentData[categoryKey]).forEach(group => {
+    paymentData[categoryKey][group].forEach(item => {
       const opt = document.createElement("option");
       opt.value = item;
-      opt.textContent = `${group} - ${item}`;
+      opt.textContent = `${group} - ${item}`; // Excel style
       subCategory.appendChild(opt);
     });
   });
+}
+
+/* ===============================
+   HELPERS
+================================ */
+
+function val(id) {
+  return document.getElementById(id).value.trim();
+}
+
+function setVal(id, v) {
+  document.getElementById(id).value = v || "";
 }
 
 /* ===============================
@@ -205,14 +205,17 @@ function fetchGroupMember(i) {
   fetch(`${BASE_URL}?mssid=${encodeURIComponent(mssid)}`)
     .then(res => res.json())
     .then(data => {
+      if (!data.name) return alert("❌ Member not found");
+
+      document.getElementById(`gm_name_${i}`).value = data.name;
+      document.getElementById(`gm_college_${i}`).value = data.college;
+
       groupMembers[i] = {
         mssid,
         year,
         name: data.name,
         college: data.college
       };
-      document.getElementById(`gm_name_${i}`).value = data.name;
-      document.getElementById(`gm_college_${i}`).value = data.college;
     });
 }
 
