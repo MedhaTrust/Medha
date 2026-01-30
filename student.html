@@ -5,7 +5,8 @@
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+
+<body onload="loadCategories()">
 
 <div class="container">
   <h2>Student Financial Request</h2>
@@ -18,7 +19,7 @@
       <input id="year" placeholder="Year">
     </div>
 
-    <button onclick="fetchMainStudent()">Fetch Details</button>
+    <button type="button" onclick="fetchMainStudent()">Fetch Details</button>
 
     <div class="form-row">
       <input id="name" placeholder="Name" disabled>
@@ -34,56 +35,43 @@
 
     <div id="groupCountBox" style="display:none">
       <input id="groupCount" type="number" placeholder="Number of Group Members">
-      <button onclick="createGroupInputs()">Next</button>
+      <button type="button" onclick="createGroupInputs()">Next</button>
     </div>
 
     <div id="groupMembers"></div>
 
     <h4>Payment Details</h4>
 
-<div class="form-row">
- <select id="category" onchange="loadSubCategories()">
-    <option value="">Select Category</option>
-  </select>
-</div>
-<div class="form-row">
-  <select id="subCategory">
-    <option value="">Select Sub-Category</option>
-  </select>
-    
- 
+    <!-- CATEGORY -->
+    <div class="form-row">
+      <select id="category" onchange="loadSubCategories()">
+        <option value="">Select Category</option>
+      </select>
+    </div>
+
+    <!-- SUB CATEGORY + PAYMENT MODE -->
+    <div class="form-row">
+      <select id="subCategory">
+        <option value="">Select Sub-Category</option>
+      </select>
+
       <select id="paymentMode">
         <option value="">Payment Mode</option>
-        <option>Online</option>
-        <option>Pay to Student</option>
+        <option value="Online">Online</option>
+        <option value="Pay to Student">Pay to Student</option>
       </select>
     </div>
 
     <textarea id="details" placeholder="Request Details / Links"></textarea>
+
     <h4>Due Date</h4>
     <input type="date" id="dueDate">
 
-    <!-- ✅ ATTACHMENT AS DRIVE LINK -->
     <h4>Attachment (Google Drive Link)</h4>
     <input type="url" id="attachment" placeholder="Paste Google Drive file link">
 
-    <button onclick="submitRequest()">Submit Request</button>
+    <button type="button" onclick="submitRequest()">Submit Request</button>
 
-  </div>
-</div>
-
-<!-- POPUP -->
-<div id="popup" style="
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.4);
-  justify-content:center;
-  align-items:center;
-">
-  <div style="background:white;padding:25px;border-radius:8px;">
-    <p id="popupMessage"></p>
   </div>
 </div>
 
