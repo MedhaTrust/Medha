@@ -7,84 +7,150 @@ let groupMembers = [];
    SubCategory = Excel items
 ================================ */
 
-const paymentData = { 
-  fees: {
-    "College Fee": [
-      "Tuition Fee",
-      "Affiliation Fee",
-      "Building Fee",
-      "Semester Registration Fee",
-      "College Reporting Fee",
-      "CRT Fee",
-      "Placement Fee",
-      "College Bus Fee",
-      "College Uniform",
-      "CA/CMA/CS Coaching Fee",
-      "Minor Degree Tuition Fee"
-    ], 
-    "Exam Fee": [
-      "Semester Exam Fee",
-      "Annual Exam Fee",
-      "CA/CMA/CS Exam Fee",
-      "IPE Board Exam Fee",
-      "NPTEL Exam Fee",
-      "Minor Degree Exam Fee"
-    ], 
-    "Miscellaneous Fees": [
-      "CMM",
-      "Original Degree",
-      "Provisional Fee",
-      "NCC Related",
-      "Study Hall Fee"
-    ],
-    "Hostel Fee": ["Hostel Fee"],
-    "Mess Fee": ["Mess Fee"],
-    "Extra Academic Expense": [
-      "Internship Fee",
-      "Major Project Equipment",
-      "Minor Project Equipment",
-      "Industrial Visit",
-      "IEEE",
-      "CISCO",
-      "SAE",
-      "TASK"
-    ]
-  },
+const paymentData = {
 
-  books: {
-    "Text Books": ["Text Books", "Reference Materials"],
-    "Note Books": ["Note Books"],
-    "Stationery": ["Pens", "Pencils", "Loose Sheets", "Scale"],
-    "Records and Manuals": [
-      "Lab Records",
-      "Lab Manuals",
-      "Major Project Reports",
-      "Minor Project Reports"
-    ]
-  },
+  "College Fee": [
+    "Tuition Fee",
+    "Affiliation Fee",
+    "Building Fee",
+    "Semester Registration Fee",
+    "College Reporting Fee",
+    "CRT Fee",
+    "College Bus Fee",
+    "College Uniform",
+    "Minor Degree Tuition Fee"
+  ],
 
-  conveyance: {
-    "Regular Travel": [
-      "Monthly Bus Pass",
-      "Quarterly Bus Pass",
-      "Monthly Auto Pass",
-      "Daily Travel",
-      "Medical Travel",
-      "College Reporting",
-      "Outstation Travel"
-    ]
-  },
+  "Exam Fee": [
+    "Semester Exam Fee",
+    "Annual Exam Fee",
+    "CA/CMA/CS Exam Fee",
+    "IPE Board Exam Fee",
+    "NPTEL Exam Fee",
+    "Minor Degree Exam Fee"
+  ],
 
-  welfare: {
-    "Food Expenses": [
-      "Food Expenses",
-      "Additional Aid",
-      "Relief",
-      "Telephone Expenses",
-      "Data Expenses",
-      "Awards to Students"
-    ]
-  }
+  "Miscellaneous Fees": [
+    "CMM",
+    "Original Degree",
+    "Provisional Fee",
+    "NCC Related",
+    "Study Hall Fee"
+  ],
+
+  "Hostel and Mess Fee": [
+    "Hostel Fee",
+    "Mess Fee"
+  ],
+
+  "Technical Courses": [
+    "C",
+    "Java",
+    "Full Stack",
+    "Skill Enhancement Course",
+    "DSA",
+    "NPTEL",
+    "TASK"
+  ],
+
+  "Personality Development Course": [
+    "Yoga",
+    "Mind Management Techniques",
+    "Fear and Anxiety Course",
+    "Other Development Sessions",
+    "Spoken English Course"
+  ],
+
+  "Placement Related": [
+    "Placement Fee",
+    "Internship Fee",
+    "Major Project Equipment",
+    "Minor Project Equipment",
+    "Industrial Visit",
+    "IEEE",
+    "CISCO",
+    "SAE"
+  ],
+
+  "Records and Manuals": [
+    "Lab Records",
+    "Lab Manuals",
+    "Major Project Reports",
+    "Minor Project Reports"
+  ],
+
+  "Stationery": [
+    "Pens",
+    "Pencils",
+    "Loose Sheets",
+    "Scale"
+  ],
+
+  "Graduate Essentials": [
+    "Aprons",
+    "Drafters",
+    "Calculators",
+    "Drawing Instruments",
+    "Scrubs",
+    "Stethoscope",
+    "Dissection Kit",
+    "Knee Hammer",
+    "Trunk Box",
+    "Plank",
+    "Chair",
+    "Plate",
+    "Glass",
+    "Bag",
+    "Bedsheet",
+    "Cot",
+    "Water Bottle",
+    "Bucket",
+    "Mug",
+    "Lock",
+    "Pillow"
+  ],
+
+  "Text Books": [
+    "Text Books",
+    "Reference Materials",
+    "Note Books"
+  ],
+
+  "Graduate Entrance Registration": [
+    "TS EAMCET Registration",
+    "AP EAMCET Registration",
+    "JEE Mains Registration",
+    "JEE Advanced Registration",
+    "NEET Registration",
+    "CA/CMA/CS Registration",
+    "DOST Registration Fee",
+    "CSAB Fee"
+  ],
+
+  "Post-Graduate Entrance Registration": [
+    "GATE Application Fee",
+    "NEET PG Application Fee",
+    "CUET Application Fee",
+    "GPAT Application Fee"
+  ],
+
+  "Graduate Counselling": [
+    "TS EAMCET Counselling",
+    "AP EAMCET Counselling",
+    "JoSAA Counselling",
+    "MCC Counselling",
+    "TS MBBS Counselling",
+    "Ag BSc / BVSc Counselling",
+    "BSc Nursing Counselling",
+    "TS AYUSH Counselling",
+    "DOST Counselling"
+  ],
+
+  "Post-Graduate Coaching": [
+    "GATE Coaching",
+    "NEET PG Coaching",
+    "Study Material / Marrow"
+  ]
 };
 
 /* ===============================
